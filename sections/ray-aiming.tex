@@ -1,0 +1,18 @@
+\section{Ray-aiming}
+We document some possible concepts for solving ray-aiming.
+
+\begin{itemize}
+\item Using a paraxial approximation as a starting point, or a development
+      in increasing orders of accuracy as shown in \cite{Zheng2010}.
+\item Tracing only cardinal rays, or rays along the edge of the aperture
+      stop and filling it with an a priori model, as in \cite{Houllier-thesis}.
+\item Computing an approximate mapping between entrance and aperture stop,
+      using paraxial optics or sampling.
+\item Direct inversion of the surfaces' raytracing (may be impossible).
+\item Implicit ray-aiming, include it as an objective in the MF. In the
+      cases we do not need the raytracing to be very accurate in the MF
+      evaluations. Would work well for local search algorithms. The
+      entrance ray heights would be free variables.
+\item Train a NN to do the ray-aiming. The training could be done on
+      a very robust but slow method.
+\end{itemize}
