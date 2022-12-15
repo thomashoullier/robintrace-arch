@@ -1,0 +1,26 @@
+\section{Ideas}
+We list development ideas.
+
+\begin{itemize}
+\item Differential raytracing: There are several applications of it.
+      \textcolor{red}{TODO: List Volatier papers}.
+\begin{itemize}
+  \item Differentiable MF by backpropagation to the design variables. This
+        forces the MF to be defined in terms of differentiable operations on
+        rays, which is mostly the case typically. The optimization can be
+        carried out using gradient-aware search algorithms. We can extend this
+        to the Hessian matrix. The gradients and more importantly Hessian matrix
+        could be established automatically by a math library at compile time.
+  \item Provide gradients to get out of error raytracing cases, either in
+        ray-aiming or in optimization.
+\end{itemize}
+\item Vulkan/Qt 3D real-time display of optical systems. We could plot in
+      real-time the current best system in optimization, or the last evaluated
+      by the search.
+\item Real-time plot of design space exploration. We could use a n-dimensional
+      to 3D/2D library to represent the exploration of the design space by the
+      search algorithms. 
+\item Paraxial approximation of raytracing. This can be useful as a surrogate
+      to the search problem, and for ray-aiming initialization.
+      \textcolor{red}{TODO: Find Gross work on raytracing matrices.}
+\end{itemize}
