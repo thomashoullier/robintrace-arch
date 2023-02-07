@@ -1,23 +1,60 @@
 \section{Scope}
-Poaky deals with tracing rays of light through optical systems,
-under the laws of geometrical optics. It allows defining an optical system
-with surfaces which propagate rays through the system. Poaky reports the
-state of rays at given optical surfaces.
+The development of RobinTrace aims at reaching a minimal set of features which
+make it a usable tool for optical design of simple systems.
+
+The aims are as follows:
+\begin{itemize}
+\item \textbf{Minimal}: RobinTrace deals with sequential raytracing. Matters of
+assessing optical performance from ray states is higher level and out of the
+scope.
+\item \textbf{For programmers}: We build an API for raytracing bundles of
+rays through optical parts sequences and report the ray states along the way.
+The user is expected to be familiar with both C++ and optical design.
+\item \textbf{Efficient}: The runtime execution should be fast. An
+execution speed in the same ballpark as that of commercial tools seems
+a reasonable goal.
+\end{itemize}
+
+The following subjects are part of RobinTrace:
+\begin{itemize}
+\item \textcolor{red}{TODO}
+\end{itemize}
+
+The following subjects are put on hold until later in the development:
+\begin{itemize}
+\item Other physical properties of rays: phase, path length, polarization,
+amplitude and intensity.
+\item Other optical parts: freeform shapes, gratings.
+\item Short-hands and utilities for defining sequences of optical parts,
+defining fields etc. These will be implemented if the need becomes apparent.
+\item (still debated) Utilities for defining aperture stop samplings.
+\item Visualisations, such as layout diagrams (2D or 3D) provide great
+graphical feedback on results and are a good way to discover bugs. They also
+likely require specific raytracing which the RobinTrace user cannot be
+expected to implement.
+\item Mapping operations onto multiple threads or GPU architectures. This
+is a hard topic since sequential raytracing is cheap and the threshold
+at which parallelism becomes worthwhile might be as high in the abstraction
+ladder as the search algorithms running on the optical design problems.
+\end{itemize}
 
 The following optical design related items are left out:
 \begin{itemize}
-\item Phase computation: The rays are purely described by their trajectory.
 \item Building objective functions and constraints: This belongs in a higher
-layer which uses the states of rays to build performance criteria.
+layer which uses the reported states of rays to build performance criteria.
+Since the objectives are numerous and can be specific, we leave their
+computation up to the user.
+\item In the same fashion, assessments of optical performance
+(breakdown in aberrations etc.) which can be built on top of raytracing
+are not planned for implementation in RobinTrace and belong in other
+programs.
 \item Optimization: This is an even higher layer than objective functions.
-\item Ray-aiming: We can implement this on top of the current program.
-\item User-level optical system definition: The optical system defined
-      by the user does not use the same formalism as that of the current
-      program.
+We want the user to be able to interface with the optimization algorithm
+of their choice.
+\item GUI for input of optical systems and control of the program. This
+is a huge work which we have no interest in.
 \end{itemize}
 
-Many concepts about raytracing have been explored in depth in a previous
+Many concepts relevant to raytracing have been explored in depth in a previous
 work \cite{Houllier-thesis}.
 
-\textcolor{red}{Whether ray-aiming and higher functions will be included
-in the current repository or another is not yet decided.}

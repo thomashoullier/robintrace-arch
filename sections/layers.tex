@@ -1,0 +1,15 @@
+\section{API layers}
+RobinTrace is constituted by a several API layers. We list them, along with a
+succinct description, in order of increasing abstraction.
+
+\subsection{Poaky}
+Poaky is the lowest layer. It defines individual rays and the operations which
+can be applied on these rays. It contains many mathematical definitions
+such as algorithms for ray operations and shapes used in raytracing. As such,
+it comes with a heavy paper documentation.
+
+\subsection{Pinyo}
+Pinyo is the layer of abstraction on top of Poaky. It defines ray bundles and
+low-level optical parts (\textit{eg} a refractive shape, a transfer part) which
+operate on ray bundles. The operations of parts on bundles of rays are an
+opportunity to define fine-grained ray error cases management.
