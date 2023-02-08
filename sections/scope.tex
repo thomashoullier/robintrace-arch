@@ -17,7 +17,13 @@ a reasonable goal.
 
 The following subjects are part of RobinTrace:
 \begin{itemize}
-\item \textcolor{red}{TODO}
+\item Raytracing equations: \emph{eg} intersecting spheres and quadrics of
+revolution, refraction and reflection.
+\item Abstractions which suit optical designers, who are interested in
+getting ray data for a particular system and particular field and pupil
+sampling.
+\item Ray-aiming is included in the features, since optical designers
+should not have to deal with it.
 \end{itemize}
 
 The following subjects are put on hold until later in the development:
@@ -25,6 +31,9 @@ The following subjects are put on hold until later in the development:
 \item Other physical properties of rays: phase, path length, polarization,
 amplitude and intensity.
 \item Other optical parts: freeform shapes, gratings.
+\item Jacobian and Hessian of ray data with respect to optical system
+parameters. See differential raytracing. This remains easy while the
+number of surface types is limited.
 \item Short-hands and utilities for defining sequences of optical parts,
 defining fields etc. These will be implemented if the need becomes apparent.
 \item (still debated) Utilities for defining aperture stop samplings.
@@ -36,6 +45,9 @@ expected to implement.
 is a hard topic since sequential raytracing is cheap and the threshold
 at which parallelism becomes worthwhile might be as high in the abstraction
 ladder as the search algorithms running on the optical design problems.
+\item A Python API wrapper. This is meant to make RobinTrace accessible
+to higher abstraction utilities and existing Python libraries. This could be
+implemented with swig.
 \end{itemize}
 
 The following optical design related items are left out:

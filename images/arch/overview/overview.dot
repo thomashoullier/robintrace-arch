@@ -5,7 +5,7 @@ ray -> bun
 nshape [label="shape"]
 ray -> nshape
 
-lpart [shape=record, label="lpart | surf | tfr"]
+lpart [shape=record, label="lpart | shape_part | transfer_part"]
 {rop,nshape} -> lpart
 
 lpart -> lsys

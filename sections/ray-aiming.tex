@@ -15,12 +15,12 @@ We document some possible concepts for solving ray-aiming.
       entrance ray heights would be free variables.
 \item Train a NN to do the ray-aiming. The training could be done on
       a very robust but slow method.
-\item Start the ray-aiming with surfaces which cannot be missed by rays (such as
-      paraboloids) and gradually change the surfaces back to their original shape.
+\item Start the ray-aiming with surfaces which cannot be missed by rays
+      and gradually change the surfaces back to their original shape.
       This is probably infeasible.
-\item Start with a large grid of ray at the entrance pupil, raytrace every ray
+\item Start with a large grid of rays at the entrance pupil, raytrace every ray
       to the aperture stop. Optimize every ray to their own convergence.
       This ensures that a ray will eventually latch on to the right region.
-      In the case of strong freeform perturbation, we can choose the entrance
+      In the case of strong freeform perturbations, we can choose the entrance
       pupil coordinates where most of the rays cluster.
 \end{itemize}
