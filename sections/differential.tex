@@ -1,0 +1,28 @@
+\section{Differential raytracing}
+We aim to implement a way to provide the ray data along with the derivatives of
+these scalars with respect to the design variables.
+
+The interplay with ray-aiming is hard to foresee. We fear the ray-aiming
+disrupts the gradient from the image MF to the design parameters.
+
+Keep in mind:
+
+\begin{itemize}
+\item The ray-aiming itself is more easily solved with gradient data.
+\item We may maintain an explicit representation of the ray-aiming relationship
+between entrance and pupil (essentially a paraxial approximation of raytracing)
+which is updated throughout the optimization and included in the gradient
+computations for the MF.
+\end{itemize}
+
+We can implement the raytracing of poaky using an automatic differentiation
+engine such as: autodiff (C++, MIT), clad (C++ for Clang, LGPL). We'll try
+with autodiff, which seems also compatible with Eigen.
+
+There is difficulty in managing the differential results when ray-aiming is
+in the mix. In any case, we can implement the Robintrace parts which
+compute both the ray-aiming ray data along with derivatives with respect
+to ray entrance heights, and the full ray data with derivatives with respect
+to design variables. We can worry about soring this out with optimizers later
+(maybe read about joint optimization, constrained optimization, bi-level
+optimization etc.).
