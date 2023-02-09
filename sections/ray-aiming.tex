@@ -12,7 +12,8 @@ We document some possible concepts for solving ray-aiming.
 \item Implicit ray-aiming, include it as an objective in the MF. In the
       cases we do not need the raytracing to be very accurate in the MF
       evaluations. Would work well for local search algorithms. The
-      entrance ray heights would be free variables.
+      entrance ray heights would be free variables. Also bi-level
+      optimization or additional constraint.
 \item Train a NN to do the ray-aiming. The training could be done on
       a very robust but slow method.
 \item Start the ray-aiming with surfaces which cannot be missed by rays
