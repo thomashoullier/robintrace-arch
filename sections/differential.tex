@@ -16,8 +16,16 @@ computations for the MF.
 \end{itemize}
 
 We can implement the raytracing of poaky using an automatic differentiation
-engine such as: autodiff (C++, MIT), clad (C++ for Clang, LGPL). We'll try
-with autodiff, which seems also compatible with Eigen.
+engine such as:
+
+\begin{itemize}
+\item autodiff (C++, MIT)
+\item clad (C++ for Clang, LGPL)
+\item Ceres (C++, Specific license/Apache v2/MIT)
+\end{itemize}
+
+Some libraries appear to do symbolic differentiations while others do
+this with so-called \emph{dual} numbers (holding an infinetesimal part).
 
 There is difficulty in managing the differential results when ray-aiming is
 in the mix. In any case, we can implement the Robintrace parts which
