@@ -6,6 +6,10 @@ We document some possible concepts for solving ray-aiming.
       in increasing orders of accuracy as shown in \cite{Zheng2010}.
 \item Tracing only cardinal rays, or rays along the edge of the aperture
       stop and filling it with an a priori model, as in \cite{Houllier-thesis}.
+\item Expose to an optimizer an analytical model of ray-aiming (for instance
+      the ray height of the entrance pupil center and coefficients for
+      establishing its shape and map of rays). The model is what is updated
+      proximally throughout the optimization, probably as a constraint.
 \item Computing an approximate mapping between entrance and aperture stop,
       using paraxial optics or sampling.
 \item Direct inversion of the surfaces' raytracing (may be impossible).
