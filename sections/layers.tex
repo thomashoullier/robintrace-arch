@@ -3,6 +3,14 @@ RobinTrace is constituted of several API layers. We list them, along with a
 succinct description, in order of increasing abstraction. The API layers are
 grouped in API blocks.
 
+\textcolor{red}{Other blocks not part of the raytracer:
+\begin{itemize}
+\item Loading and saving full optical systems from/to a file.
+\item User interface using yaml files? We can choose the optical system to load,
+the solvers to use etc.
+\item Rendering of optical systems, layout diagrams.
+\end{itemize}}
+
 \subsection{Raytracer}
 The raytracer is the lowest API block. It implements the sequential raytracing
 routines along with the necessary abstractions to deal with sequences of optical
@@ -28,3 +36,13 @@ optical parts and a stateful object \lstinline{lseq} holding the raytracing. The
 \lstinline{lseq} object holds the sequence of parts, the ray bundles being
 raytraced through the sequence and a buffer for saving intermediate ray states.
 It manages the application of parts one by one on the ray bundles.
+
+\subsection{Setupper}
+\textcolor{red}{utilities for aperture samplings and field definition/ray
+initialization. Define the full-fledged optical system raytracing problem
+class: fields, aperture stop position, lseq. Expose the ray-aiming problem
+to the solvers but do not solve it.}
+
+\subsection{Solver}
+\textcolor{red}{Management of the MF computations from ray states. Solve
+ray-aiming in multiple ways.}
