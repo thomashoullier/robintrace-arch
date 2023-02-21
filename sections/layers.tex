@@ -1,15 +1,30 @@
 \section{API layers}
-RobinTrace is constituted by a several API layers. We list them, along with a
-succinct description, in order of increasing abstraction.
+RobinTrace is constituted of several API layers. We list them, along with a
+succinct description, in order of increasing abstraction. The API layers are
+grouped in API blocks.
 
-\subsection{Poaky}
+\subsection{Raytracer}
+The raytracer is the lowest API block. It implements the sequential raytracing
+routines along with the necessary abstractions to deal with sequences of optical
+parts and bundles of rays. The implementation is agnostic with respect to the
+type of system being designed. In particular, no target fields, aperture
+samplings or ray-aiming are implemented here.
+
+\subsubsection{Poaky}
 Poaky is the lowest layer. It defines individual rays and the operations which
 can be applied on these rays. It contains many mathematical definitions
 such as algorithms for ray operations and shapes used in raytracing. As such,
 it comes with a heavy paper documentation.
 
-\subsection{Pinyo}
+\subsubsection{Pinyo}
 Pinyo is the layer of abstraction on top of Poaky. It defines ray bundles and
 low-level optical parts (\textit{eg} a refractive shape, a transfer part) which
 operate on ray bundles. The operations of parts on bundles of rays are an
 opportunity to define fine-grained ray error cases management.
+
+\subsubsection{Pewit}
+Pewit is the highest layer in the raytracer. It defines sequences of low-level
+optical parts and a stateful object \lstinline{lseq} holding the raytracing. The
+\lstinline{lseq} object holds the sequence of parts, the ray bundles being
+raytraced through the sequence and a buffer for saving intermediate ray states.
+It manages the application of parts one by one on the ray bundles.
